@@ -9,7 +9,11 @@ import menu.Menu;
 import operaciones.Operaciones;
 
 public class Calculadora{
-    public static void main(String[] args) {   
+    public static void main(String[] args) {
+    	/**
+    	 * Esta parte seria el main de nuestro programa. Aqui sera donde llamaremos a las otras clases 'operaciones' y 'menu'
+    	 * En esta clase tendremos la excepcion de ArithmeticException 
+    	 */
         int resultado = 0;
         String operacion = "";
         int[] operandos = new int [2];
