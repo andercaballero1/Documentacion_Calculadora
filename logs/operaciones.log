@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-03-18T10:17:02.334559100Z</date>
+  <millis>1647598622334</millis>
+  <nanos>559100</nanos>
+  <sequence>0</sequence>
+  <logger>principal.Calculadora</logger>
+  <level>FINE</level>
+  <class>principal.Calculadora</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Operacion: + Operando 1: 45 Operando 2:5 Resultado: 50</message>
+</record>
+<record>
+  <date>2022-03-18T10:17:09.961247700Z</date>
+  <millis>1647598629961</millis>
+  <nanos>247700</nanos>
+  <sequence>1</sequence>
+  <logger>principal.Calculadora</logger>
+  <level>FINE</level>
+  <class>principal.Calculadora</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Operacion: - Operando 1: 25 Operando 2:15 Resultado: 10</message>
+</record>
+</log>
