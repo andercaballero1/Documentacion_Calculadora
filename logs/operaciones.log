@@ -2,27 +2,39 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-03-18T10:17:02.334559100Z</date>
-  <millis>1647598622334</millis>
-  <nanos>559100</nanos>
+  <date>2022-03-18T10:19:08.191125200Z</date>
+  <millis>1647598748191</millis>
+  <nanos>125200</nanos>
   <sequence>0</sequence>
   <logger>principal.Calculadora</logger>
-  <level>FINE</level>
+  <level>WARNING</level>
   <class>principal.Calculadora</class>
   <method>main</method>
   <thread>1</thread>
-  <message>Operacion: + Operando 1: 45 Operando 2:5 Resultado: 50</message>
+  <message>Division entre cero.</message>
 </record>
 <record>
-  <date>2022-03-18T10:17:09.961247700Z</date>
-  <millis>1647598629961</millis>
-  <nanos>247700</nanos>
+  <date>2022-03-18T10:19:13.860104300Z</date>
+  <millis>1647598753860</millis>
+  <nanos>104300</nanos>
   <sequence>1</sequence>
   <logger>principal.Calculadora</logger>
   <level>FINE</level>
   <class>principal.Calculadora</class>
   <method>main</method>
   <thread>1</thread>
-  <message>Operacion: - Operando 1: 25 Operando 2:15 Resultado: 10</message>
+  <message>Operacion: * Operando 1: 10 Operando 2:5 Resultado: 50</message>
+</record>
+<record>
+  <date>2022-03-18T10:19:22.341470100Z</date>
+  <millis>1647598762341</millis>
+  <nanos>470100</nanos>
+  <sequence>2</sequence>
+  <logger>principal.Calculadora</logger>
+  <level>FINE</level>
+  <class>principal.Calculadora</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Operacion: + Operando 1: 50 Operando 2:15 Resultado: 65</message>
 </record>
 </log>

@@ -40,9 +40,12 @@ public class Calculadora{
         }
         LogManager.getLogManager().reset();
         
+        
+        //Asignar handlers al objeto LOGGER
         LOGGER.addHandler(fileHandler);
         LOGGER.addHandler(consoleHandler);
         
+        //Establecer niveles a handlers y LOGGER
         consoleHandler.setLevel(Level.WARNING);
         fileHandler.setLevel(Level.FINE);
         LOGGER.setLevel(Level.FINE);
