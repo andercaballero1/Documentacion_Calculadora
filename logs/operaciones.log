@@ -1,40 +1,5 @@
-<?xml version="1.0" encoding="windows-1252" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2022-03-18T10:19:08.191125200Z</date>
-  <millis>1647598748191</millis>
-  <nanos>125200</nanos>
-  <sequence>0</sequence>
-  <logger>principal.Calculadora</logger>
-  <level>WARNING</level>
-  <class>principal.Calculadora</class>
-  <method>main</method>
-  <thread>1</thread>
-  <message>Division entre cero.</message>
-</record>
-<record>
-  <date>2022-03-18T10:19:13.860104300Z</date>
-  <millis>1647598753860</millis>
-  <nanos>104300</nanos>
-  <sequence>1</sequence>
-  <logger>principal.Calculadora</logger>
-  <level>FINE</level>
-  <class>principal.Calculadora</class>
-  <method>main</method>
-  <thread>1</thread>
-  <message>Operacion: * Operando 1: 10 Operando 2:5 Resultado: 50</message>
-</record>
-<record>
-  <date>2022-03-18T10:19:22.341470100Z</date>
-  <millis>1647598762341</millis>
-  <nanos>470100</nanos>
-  <sequence>2</sequence>
-  <logger>principal.Calculadora</logger>
-  <level>FINE</level>
-  <class>principal.Calculadora</class>
-  <method>main</method>
-  <thread>1</thread>
-  <message>Operacion: + Operando 1: 50 Operando 2:15 Resultado: 65</message>
-</record>
-</log>
+<HTML> 
+ <BODY> 
+<P>Operacion: + Operando 1: 4 Operando 2:5 Resultado: 9</P> 
+</BODY> 
+ </HTML> 

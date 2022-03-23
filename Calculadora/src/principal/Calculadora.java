@@ -12,45 +12,24 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
+import java.util.logging.XMLFormatter;
 
+import logs.FormatoHTML;
 import menu.Menu;
 import operaciones.Operaciones;
 
 public class Calculadora{
 	private static final Logger LOGGER = Logger.getLogger(Calculadora.class.getName());
     public static void main(String[] args) {
-    	/**
-    	 * Esta parte seria el main de nuestro programa. Aqui sera donde llamaremos a las otras clases 'operaciones' y 'menu'
-    	 * En esta clase tendremos la excepcion de ArithmeticException 
-    	 */
+    	configurarLog();
+    	    	
         int resultado = 0;
         String operacion = "";
         int[] operandos = new int [2];
         
         Menu menu = new Menu();
         Operaciones operaciones = new Operaciones();
-        
-        Handler fileHandler = null;
-        Handler consoleHandler = new ConsoleHandler();
-        
-        try{
-        	fileHandler  = new FileHandler("./logs/operaciones.log");;	
-        }catch(IOException exception){
-        	LOGGER.log(Level.SEVERE, "Ocurri√≥ un error en FileHandler.", exception);
-        }
-        LogManager.getLogManager().reset();
-        
-        
-        //Asignar handlers al objeto LOGGER
-        LOGGER.addHandler(fileHandler);
-        LOGGER.addHandler(consoleHandler);
-        
-        //Establecer niveles a handlers y LOGGER
-        consoleHandler.setLevel(Level.WARNING);
-        fileHandler.setLevel(Level.FINE);
-        LOGGER.setLevel(Level.FINE);
-        
-        
+          
         do{
             operandos = menu.pedirNumeros();
             operacion = menu.menuOpciones();
@@ -74,11 +53,43 @@ public class Calculadora{
 	            } else {
 	                System.out.println ("OperaciÛn no v·lida");
 	            }
-	            LOGGER.log(Level.FINE, "Operacion: " + operacion + " Operando 1: " + operandos[0] + " Operando 2:" + operandos[1] + " Resultado: " + resultado);
+	            LOGGER.log(Level.FINE, "Operacion: " + operacion + " | Operando 1: " + operandos[0] + " | Operando 2:" + operandos[1] + " | Resultado: " + resultado);
 	        } catch (ArithmeticException e) {
 	        	System.out.println ("Operacion aritmetica no valida " + e.getMessage());
 	        	LOGGER.log(Level.WARNING, "Division entre cero.");
 	        }  
         }   while (menu.repetir());
     }
+    
+    
+    public static void configurarLog() { 
+    	 LOGGER.setUseParentHandlers(false);
+    		
+         Handler fileHandler = null;
+         Handler consoleHandler = new ConsoleHandler();
+         
+         //Asignar handlers al objeto LOGGER
+         LOGGER.addHandler(consoleHandler);
+         
+         try{
+         	fileHandler  = new FileHandler("./logs/operaciones.html");	
+         }catch(IOException exception){
+         	LOGGER.log(Level.SEVERE, "Ocurri√≥ un error en FileHandler.", exception);
+         }
+         // LogManager.getLogManager().reset();
+         
+         
+         // Formato
+         fileHandler.setFormatter(new FormatoHTML());
+         
+         
+         //Asignar handlers al objeto LOGGER
+         LOGGER.addHandler(fileHandler);
+         
+         //Establecer niveles a handlers y LOGGER
+         consoleHandler.setLevel(Level.WARNING);
+         fileHandler.setLevel(Level.FINE);
+         LOGGER.setLevel(Level.FINE);
+    }
+    
 }
