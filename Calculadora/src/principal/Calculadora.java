@@ -5,22 +5,31 @@ package principal;
  *
  */
 
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
 import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
-import logs.FiltroLogSoloMultiplicar;
-import logs.FormatoHTML;
+
 import menu.Menu;
 import operaciones.Operaciones;
 
 public class Calculadora{
-	private static final Logger LOGGER = Logger.getLogger(Calculadora.class.getName());
-    public static void main(String[] args) {
-    	configurarLog();
-    	    	
+	private static final LogManager logManager = LogManager.getLogManager();
+	private static final Logger LOGGER = Logger.getLogger("confLogger");
+	
+	static{
+		 try {
+			 logManager.readConfiguration(new FileInputStream("./logs/configLog.properties"));
+		 } catch (IOException exception) {
+			 LOGGER.log(Level.SEVERE, "Error al cargar la configuración",exception);
+		 }
+	 }
+	
+    public static void main(String[] args) {   	
+    	
+    	// configurarLog();
+    	
         int resultado = 0;
         String operacion = "";
         int[] operandos = new int [2];
@@ -59,7 +68,7 @@ public class Calculadora{
         }   while (menu.repetir());
     }
     
-    
+    /*
     public static void configurarLog() { 
     	 LOGGER.setUseParentHandlers(false);
     		
@@ -91,6 +100,6 @@ public class Calculadora{
          
          // Añadir filtro para Handler
          fileHandler.setFilter(new FiltroLogSoloMultiplicar());
-    }
+    } */
     
 }
