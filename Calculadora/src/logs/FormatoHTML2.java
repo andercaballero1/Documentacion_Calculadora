@@ -15,12 +15,12 @@ public class FormatoHTML2 extends Formatter {
 	
 	@Override
 	public String getHead(Handler h) {
-        return "<HTML> \n <HEAD> <link rel='stylesheet' href='C:\\Users\\irakaslea\\git\\Calculadora\\Calculadora\\src\\style.css'> \n <BODY><TABLE><TBODY><TR><TH>Operacion</TH><TH>Operando1</TH><TH>Operando2</TH><TH>Resultado</TH>";
+        return "<HTML> \n <HEAD> <link rel='stylesheet' href='C:\\Users\\irakaslea\\git\\Calculadora\\Calculadora\\src\\style.css'></HEAD> \n <BODY><TABLE><TBODY><TR><TH>Operacion</TH><TH>Operando1</TH><TH>Operando2</TH><TH>Resultado</TH>";
     }
 
 	@Override
     public String getTail(Handler h) {
-        return "</TR></TBODY></TABLE> </BODY> \n </HEAD> \n </HTML> \n";
+        return "</TR></TBODY></TABLE> </BODY> \n </HTML> \n";
     }
 
 }
