@@ -7,16 +7,21 @@ package principal;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import logs.FiltroLogSoloCero;
+import logs.FormatoHTML2;
 import menu.Menu;
 import operaciones.Operaciones;
 
 public class Calculadora{
 	private static final LogManager logManager = LogManager.getLogManager();
-	private static final Logger LOGGER = Logger.getLogger("confLogger");
+	private static final Logger LOGGER = Logger.getLogger(Calculadora.class.getName());
 	
 	static{
 		 try {
@@ -26,9 +31,8 @@ public class Calculadora{
 		 }
 	 }
 	
-    public static void main(String[] args) {   	
-    	
-    	// configurarLog();
+    public static void main(String[] args) {   		
+    	configurarLog(); 
     	
         int resultado = 0;
         String operacion = "";
@@ -60,7 +64,7 @@ public class Calculadora{
 	            } else {
 	                System.out.println ("Operación no válida");
 	            }
-	            LOGGER.log(Level.FINE, "Operacion: " + operacion + " | Operando 1: " + operandos[0] + " | Operando 2:" + operandos[1] + " | Resultado: " + resultado);
+	            LOGGER.log(Level.FINE, "Operacion: " + operacion + " |Operando1: " + operandos[0] + " |Operando2: " + operandos[1] + " |Resultado: " + resultado);
 	        } catch (ArithmeticException e) {
 	        	System.out.println ("Operacion aritmetica no valida " + e.getMessage());
 	        	LOGGER.log(Level.WARNING, "Division entre cero.");
@@ -68,18 +72,16 @@ public class Calculadora{
         }   while (menu.repetir());
     }
     
-    /*
-    public static void configurarLog() { 
-    	 LOGGER.setUseParentHandlers(false);
+   public static void configurarLog() { 
     		
-         Handler fileHandler = null;
+         Handler fileHandlerr = null;
          Handler consoleHandler = new ConsoleHandler();
          
          //Asignar handlers al objeto LOGGER
          LOGGER.addHandler(consoleHandler);
          
          try{
-         	fileHandler  = new FileHandler("./logs/operaciones.html");	
+        	 fileHandlerr  = new FileHandler("./logs/resultadosNulos.html");	
          }catch(IOException exception){
          	LOGGER.log(Level.SEVERE, "OcurriÃ³ un error en FileHandler.", exception);
          }
@@ -87,19 +89,19 @@ public class Calculadora{
          
          
          // Formato
-         fileHandler.setFormatter(new FormatoHTML());
+         fileHandlerr.setFormatter(new FormatoHTML2());
          
          
          //Asignar handlers al objeto LOGGER
-         LOGGER.addHandler(fileHandler);
+         LOGGER.addHandler(fileHandlerr);
          
          //Establecer niveles a handlers y LOGGER
          consoleHandler.setLevel(Level.WARNING);
-         fileHandler.setLevel(Level.FINE);
+         fileHandlerr.setLevel(Level.FINE);
          LOGGER.setLevel(Level.FINE);
          
          // Añadir filtro para Handler
-         fileHandler.setFilter(new FiltroLogSoloMultiplicar());
-    } */
+         fileHandlerr.setFilter(new FiltroLogSoloCero());
+    } 
     
 }
